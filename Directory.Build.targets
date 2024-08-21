@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <!-- configure depot_tools -->
+    <Import Project="$(MSBuildThisFileDirectory)DepotTools.props" Condition="exists('$(MSBuildThisFileDirectory)DepotTools.props')"/>
+    <!-- setup environment variables -->
+    <UsingTask TaskName="SetEnv" AssemblyFile="$(VCTargetsPath)\Microsoft.Build.CppTasks.Common.dll"/>
+    <Target Name="SetEnvironmentVariables" BeforeTargets="Build;CustomBuild;Clean">
+        <SetEnv Name="Path" Value="$(DepotToolsPath);$(MSBuildThisFileDirectory)chromium\src\third_party\ninja;$(Path)" Prefix="false">
+            <Output TaskParameter="OutputEnvironmentVariable" PropertyName="Path"/>
+        </SetEnv>
+        <SetEnv Name="DEPOT_TOOLS_WIN_TOOLCHAIN" Value="0" Prefix="false">
+            <Output TaskParameter="OutputEnvironmentVariable" PropertyName="DEPOT_TOOLS_WIN_TOOLCHAIN"/>
+        </SetEnv>
+        <SetEnv Name="VS2022_INSTALL" Value="$(VSInstallDir)" Prefix="false">
+            <Output TaskParameter="OutputEnvironmentVariable" PropertyName="VS2022_INSTALL"/>
+        </SetEnv>
+    </Target>
+</Project>

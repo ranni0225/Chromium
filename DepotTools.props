@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <DepotToolsPath>$(MSBuildThisFileDirectory)depot_tools;$(MSBuildThisFileDirectory)depot_tools\bootstrap-2@3_11_8_chromium_35_bin\python3\bin</DepotToolsPath>
+    </PropertyGroup>
+</Project>
